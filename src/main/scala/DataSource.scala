@@ -30,7 +30,8 @@ class DataSource(val dsp: DataSourceParams)
       appName = dsp.appName,
       entityType = "user",
       // only keep entities with these required properties defined
-      required = Some(List("plan", "attr0", "attr1", "attr2")))(sc)
+      required = Some(List("plan", "attr0", "attr1", "attr2", "attr3", "attr4", "attr5", "attr6", "attr7", "attr8", "attr9", "attr10", "attr11",
+        "attr12", "attr13", "attr14", "attr15", "attr16", "attr17", "attr18", "attr19", "attr20", "attr21", "attr22", "attr23", "attr24")))(sc)
       // aggregateProperties() returns RDD pair of
       // entity ID and its aggregated properties
       .map { case (entityId, properties) =>
@@ -39,7 +40,29 @@ class DataSource(val dsp: DataSourceParams)
             Vectors.dense(Array(
               properties.get[Double]("attr0"),
               properties.get[Double]("attr1"),
-              properties.get[Double]("attr2")
+              properties.get[Double]("attr2"),
+              properties.get[Double]("attr3"),
+              properties.get[Double]("attr4"),
+              properties.get[Double]("attr5"),
+              properties.get[Double]("attr6"),
+              properties.get[Double]("attr7"),
+              properties.get[Double]("attr8"),
+              properties.get[Double]("attr9"),
+              properties.get[Double]("attr10"),
+              properties.get[Double]("attr11"),
+              properties.get[Double]("attr12"),
+              properties.get[Double]("attr13"),
+              properties.get[Double]("attr14"),
+              properties.get[Double]("attr15"),
+              properties.get[Double]("attr16"),
+              properties.get[Double]("attr17"),
+              properties.get[Double]("attr18"),
+              properties.get[Double]("attr19"),
+              properties.get[Double]("attr20"),
+              properties.get[Double]("attr21"),
+              properties.get[Double]("attr22"),
+              properties.get[Double]("attr23"),
+              properties.get[Double]("attr24")
             ))
           )
         } catch {
@@ -68,7 +91,8 @@ class DataSource(val dsp: DataSourceParams)
       appName = dsp.appName,
       entityType = "user",
       // only keep entities with these required properties defined
-      required = Some(List("plan", "attr0", "attr1", "attr2")))(sc)
+      required = Some(List("plan", "attr0", "attr1", "attr2", "attr3", "attr4", "attr5", "attr6", "attr7", "attr8", "attr9", "attr10", "attr11",
+        "attr12", "attr13", "attr14", "attr15", "attr16", "attr17", "attr18", "attr19", "attr20", "attr21", "attr22", "attr23", "attr24")))(sc)
       // aggregateProperties() returns RDD pair of
       // entity ID and its aggregated properties
       .map { case (entityId, properties) =>
@@ -77,7 +101,29 @@ class DataSource(val dsp: DataSourceParams)
             Vectors.dense(Array(
               properties.get[Double]("attr0"),
               properties.get[Double]("attr1"),
-              properties.get[Double]("attr2")
+              properties.get[Double]("attr2"),
+              properties.get[Double]("attr3"),
+              properties.get[Double]("attr4"),
+              properties.get[Double]("attr5"),
+              properties.get[Double]("attr6"),
+              properties.get[Double]("attr7"),
+              properties.get[Double]("attr8"),
+              properties.get[Double]("attr9"),
+              properties.get[Double]("attr10"),
+              properties.get[Double]("attr11"),
+              properties.get[Double]("attr12"),
+              properties.get[Double]("attr13"),
+              properties.get[Double]("attr14"),
+              properties.get[Double]("attr15"),
+              properties.get[Double]("attr16"),
+              properties.get[Double]("attr17"),
+              properties.get[Double]("attr18"),
+              properties.get[Double]("attr19"),
+              properties.get[Double]("attr20"),
+              properties.get[Double]("attr21"),
+              properties.get[Double]("attr22"),
+              properties.get[Double]("attr23"),
+              properties.get[Double]("attr24")
             ))
           )
         } catch {
@@ -102,7 +148,10 @@ class DataSource(val dsp: DataSourceParams)
         new TrainingData(trainingPoints),
         new EmptyEvaluationInfo(),
         testingPoints.map {
-          p => (new Query(p.features(0), p.features(1), p.features(2)), new ActualResult(p.label))
+          p => (new Query(p.features(0), p.features(1), p.features(2), p.features(3), p.features(4), p.features(5), p.features(6)
+            , p.features(7), p.features(8), p.features(9), p.features(10), p.features(11), p.features(12), p.features(13), p.features(14)
+            , p.features(15), p.features(16), p.features(17), p.features(18), p.features(19), p.features(20), p.features(21), p.features(22)
+            , p.features(23), p.features(24)), new ActualResult(p.label))
         }
       )
     }
